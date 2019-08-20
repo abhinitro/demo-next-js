@@ -1,0 +1,18 @@
+.wrapper .about_us .set-text-center {
+    padding: 119px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+code {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+}
