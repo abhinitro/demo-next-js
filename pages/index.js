@@ -14,7 +14,7 @@ function Home() {
               Home    
             </h1>
             <code className="">
-             Just General Set Up of Next Js We are adding some more cool things in this repo soon 
+             Just General Set Up of Next Js We are adding some more cool things in this repo soon  
 
             </code>
 
