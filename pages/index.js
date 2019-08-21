@@ -1,12 +1,47 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Meta from '../containers/Meta';
-import DefaultHeader from '../containers/DefaultHeader.js';
 import DefaultLayout from '../containers/DefaultLayout.js';
 import Examples from '../components/example';
 
+import {connect} from 'react-redux';
+import { startClock, serverRenderClock } from '../store'
 
-function Home() {
-    return <div >
+
+
+import React, { Component } from 'react'
+
+ class Home extends Component {
+
+  static getInitialProps ({ reduxStore, req }) {
+    const isServer = !!req
+    // DISPATCH ACTIONS HERE ONLY WITH `reduxStore.dispatch`
+    reduxStore.dispatch(serverRenderClock(isServer))
+
+    return {}
+  }
+
+  componentDidMount () {
+    // DISPATCH ACTIONS HERE FROM `mapDispatchToProps`
+    // TO TICK THE CLOCK
+    this.timer = setInterval(() => this.props.startClock(), 1000)
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.timer)
+  }
+
+
+
+
+
+
+
+
+
+
+  render() {
+    return (
+      <div >
      <Meta/>
     
    <DefaultLayout>
@@ -24,6 +59,15 @@ function Home() {
        </DefaultLayout>
     
     </div>
+    )
   }
+}
+
+
+
+const mapDispatchToProps = { startClock }
+export default connect(
+  null,
+  mapDispatchToProps
+)(Home)
   
-  export default Home

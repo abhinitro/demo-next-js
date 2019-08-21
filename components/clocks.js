@@ -5,7 +5,7 @@ export default ({ lastUpdate, light }) => {
     console.log("In Clocks Page",lastUpdate)
     return (
       <div className={light ? 'light' : ''}>
-        {format(new Date())}
+        {format(new Date(lastUpdate))}
         <style jsx>{`
           div {
             padding: 15px;
