@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Meta from '../containers/Meta';
 import DefaultHeader from '../containers/DefaultHeader.js';
 import DefaultLayout from '../containers/DefaultLayout.js';
+import Examples from '../components/example';
 
 
 function Home() {
@@ -15,11 +16,11 @@ function Home() {
             </h1>
             <code className="">
              Just General Set Up of Next Js We are adding some more cool things in this repo soon  
-
+           
             </code>
-
+            <Examples/>
           </div>
- 
+         
        </DefaultLayout>
     
     </div>

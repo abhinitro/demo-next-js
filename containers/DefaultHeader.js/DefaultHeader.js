@@ -35,7 +35,7 @@ export default class DefaultHeader extends Component {
                 <Nav className="ml-auto" navbar>
                   
                   <NavItem>
-                   <Link href="/about-us" className="nav-link">About</Link>
+                   <Link href="/about-us" >About</Link>
                   </NavItem>
                  
                 </Nav>
