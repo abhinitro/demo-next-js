@@ -1,5 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import thunkMiddleware from "redux-thunk";
+
 
 const exampleInitialState = {
   lastUpdate: 0,
@@ -11,7 +13,8 @@ export const actionTypes = {
   TICK: 'TICK',
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
-  RESET: 'RESET'
+  RESET: 'RESET',
+  AUTH: 'AUTH',
 }
 
 // REDUCERS
@@ -34,6 +37,14 @@ export const reducer = (state = exampleInitialState, action) => {
       return Object.assign({}, state, {
         count: exampleInitialState.count
       })
+
+      case actionTypes.AUTH:
+      console.log("I am on Auth")
+      return Object.assign({}, state, {
+        auth: true
+      })
+
+
     default:
       return state
   }
@@ -47,8 +58,10 @@ export const startClock = () => {
   return { type: actionTypes.TICK, light: true, ts: Date.now() }
 }
 
-export const incrementCount = () => {
-  return { type: actionTypes.INCREMENT }
+export const incrementCount = ()=> async dispatch =>{
+
+  dispatch({ type:actionTypes.AUTH })
+  dispatch( { type: actionTypes.INCREMENT });
 }
 
 export const decrementCount = () => {
@@ -59,10 +72,12 @@ export const resetCount = () => {
   return { type: actionTypes.RESET }
 }
 
+
 export function initializeStore (initialState = exampleInitialState) {
   return createStore(
     reducer,
     initialState,
-    composeWithDevTools(applyMiddleware())
+    composeWithDevTools(applyMiddleware(thunkMiddleware))
+
   )
 }

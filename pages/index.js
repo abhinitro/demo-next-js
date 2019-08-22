@@ -5,9 +5,6 @@ import Examples from '../components/example';
 
 import {connect} from 'react-redux';
 import { startClock, serverRenderClock } from '../store'
-
-
-
 import React, { Component } from 'react'
 
  class Home extends Component {

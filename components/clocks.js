@@ -2,7 +2,6 @@ export default ({ lastUpdate, light }) => {
 
 
 
-    console.log("In Clocks Page",lastUpdate)
     return (
       <div className={light ? 'light' : ''}>
         {format(new Date(lastUpdate))}

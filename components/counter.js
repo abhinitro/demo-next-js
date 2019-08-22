@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux'
 import { incrementCount, decrementCount, resetCount } from '../store'
 
 class Counter extends Component {
-  increment = () => {
+  increment = async () => {
     const { incrementCount } = this.props
-    incrementCount()
+    await incrementCount()
   }
 
   decrement = () => {
