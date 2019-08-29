@@ -4,7 +4,7 @@ import DefaultLayout from '../containers/DefaultLayout.js';
 import Examples from '../components/example';
 
 import {connect} from 'react-redux';
-import { startClock, serverRenderClock } from '../store'
+import { startClock, serverRenderClock } from './../redux/actions'
 import React, { Component } from 'react'
 
  class Home extends Component {
